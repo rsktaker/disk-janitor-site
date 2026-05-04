@@ -11,7 +11,7 @@ async function getLatestRelease(): Promise<Release | null> {
   try {
     const res = await fetch(
       `https://api.github.com/repos/${REPO}/releases/latest`,
-      { next: { revalidate: 600 }, headers: { Accept: 'application/vnd.github+json' } }
+      { next: { revalidate: 60 }, headers: { Accept: 'application/vnd.github+json' } }
     );
     if (!res.ok) return null;
     const data = await res.json();
