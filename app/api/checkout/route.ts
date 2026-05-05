@@ -35,7 +35,7 @@ export async function POST(): Promise<Response> {
     if (!session.url) {
       return NextResponse.json({ error: 'no_url' }, { status: 500 });
     }
-    return NextResponse.json({ url: session.url });
+    return NextResponse.json({ url: session.url, session_id: session.id });
   } catch (err) {
     const message = err instanceof Error ? err.message : 'unknown error';
     return NextResponse.json({ error: message }, { status: 500 });
